@@ -46,10 +46,7 @@ alias doco=docker-compose
 alias docstop='f() { docker stop $(docker ps -aq) }; f'
 alias docbash='f() { docker run -it --privileged $1 /bin/bash }; f'
 alias docip='f() { docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $1 }; f'
-
-if [ -f ~/.docker_aliases ]; then
-  source ~/.docker_aliases
-fi 
+alias docps="docker ps --format '{{.ID}} - {{.Names}} - {{.Status}} - {{.Image}}'
 
 eval "$(rbenv init -)"
 export PATH="/usr/local/opt/curl/bin:$PATH"
